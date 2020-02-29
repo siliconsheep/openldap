@@ -87,6 +87,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:0.14 "
 			"NAME 'olcDbURI' "
 			"DESC 'URI (list) for remote DSA' "
+			"EQUALITY caseExactMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -95,6 +96,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.1 "
 			"NAME 'olcDbStartTLS' "
 			"DESC 'StartTLS' "
+			"EQUALITY caseExactMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -103,6 +105,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.2 "
 			"NAME 'olcDbACLAuthcDn' "
 			"DESC 'Remote ACL administrative identity' "
+			"EQUALITY distinguishedNameMatch "
 			"OBSOLETE "
 			"SYNTAX OMsDN "
 			"SINGLE-VALUE )",
@@ -133,6 +136,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.4 "
 			"NAME 'olcDbACLBind' "
 			"DESC 'Remote ACL administrative identity auth bind configuration' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -141,6 +145,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.5 "
 			"NAME 'olcDbIDAssertAuthcDn' "
 			"DESC 'Remote Identity Assertion administrative identity' "
+			"EQUALITY distinguishedNameMatch "
 			"OBSOLETE "
 			"SYNTAX OMsDN "
 			"SINGLE-VALUE )",
@@ -167,6 +172,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.7 "
 			"NAME 'olcDbIDAssertBind' "
 			"DESC 'Remote Identity Assertion administrative identity auth bind configuration' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -196,6 +202,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.10 "
 			"NAME 'olcDbRebindAsUser' "
 			"DESC 'Rebind as user' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -204,6 +211,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.11 "
 			"NAME 'olcDbChaseReferrals' "
 			"DESC 'Chase referrals' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -212,6 +220,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.12 "
 			"NAME 'olcDbTFSupport' "
 			"DESC 'Absolute filters support' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -220,6 +229,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.13 "
 			"NAME 'olcDbProxyWhoAmI' "
 			"DESC 'Proxy whoAmI exop' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -228,6 +238,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.14 "
 			"NAME 'olcDbTimeout' "
 			"DESC 'Per-operation timeouts' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -236,6 +247,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.15 "
 			"NAME 'olcDbIdleTimeout' "
 			"DESC 'connection idle timeout' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -244,6 +256,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.16 "
 			"NAME 'olcDbConnTtl' "
 			"DESC 'connection ttl' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -252,6 +265,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.17 "
 			"NAME 'olcDbNetworkTimeout' "
 			"DESC 'connection network timeout' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -260,6 +274,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.18 "
 			"NAME 'olcDbProtocolVersion' "
 			"DESC 'protocol version' "
+			"EQUALITY integerMatch "
 			"SYNTAX OMsInteger "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -268,6 +283,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.19 "
 			"NAME 'olcDbSingleConn' "
 			"DESC 'cache a single connection per identity' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -276,6 +292,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.20 "
 			"NAME 'olcDbCancel' "
 			"DESC 'abandon/ignore/exop operations when appropriate' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -284,6 +301,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.21 "
 			"NAME 'olcDbQuarantine' "
 			"DESC 'Quarantine database if connection fails and retry according to rule' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -292,6 +310,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.22 "
 			"NAME 'olcDbUseTemporaryConn' "
 			"DESC 'Use temporary connections if the cached one is busy' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -300,6 +319,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.23 "
 			"NAME 'olcDbConnectionPoolMax' "
 			"DESC 'Max size of privileged connections pool' "
+			"EQUALITY integerMatch "
 			"SYNTAX OMsInteger "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -309,6 +329,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.24 "
 			"NAME 'olcDbSessionTrackingRequest' "
 			"DESC 'Add session tracking control to proxied requests' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -318,6 +339,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.25 "
 			"NAME 'olcDbNoRefs' "
 			"DESC 'Do not return search reference responses' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -326,6 +348,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.26 "
 			"NAME 'olcDbNoUndefFilter' "
 			"DESC 'Do not propagate undefined search filters' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -334,6 +357,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.108 "
 			"NAME 'olcDbOnErr' "
 			"DESC 'error handling' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -361,6 +385,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.28 "
 			"NAME 'olcDbRemoveUnknownSchema' "
 			"DESC 'Omit unknown schema when returning search results' "
+			"EQUALITY booleanMatch "
 			"SYNTAX OMsBoolean "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -369,6 +394,7 @@ static ConfigTable ldapcfg[] = {
 		ldap_back_cf_gen, "( OLcfgDbAt:3.29 "
 			"NAME 'olcDbKeepalive' "
 			"DESC 'TCP keepalive' "
+			"EQUALITY caseIgnoreMatch "
 			"SYNTAX OMsDirectoryString "
 			"SINGLE-VALUE )",
 		NULL, NULL },
@@ -902,7 +928,14 @@ slap_idassert_parse( ConfigArgs *c, slap_idassert_t *si )
 
 				} else if ( strcasecmp( flags[ j ], "proxy-authz-non-critical" ) == 0 ) {
 					si->si_flags &= ~LDAP_BACK_AUTH_PROXYAUTHZ_CRITICAL;
-
+				} else if ( strcasecmp( flags[ j ], "dn-none" ) == 0 ) {	
+					si->si_flags &= ~LDAP_BACK_AUTH_DN_MASK;	
+				} else if ( strcasecmp( flags[ j ], "dn-authzid" ) == 0 ) {	
+					si->si_flags &= ~LDAP_BACK_AUTH_DN_MASK;	
+					si->si_flags |= LDAP_BACK_AUTH_DN_AUTHZID;	
+				} else if ( strcasecmp( flags[ j ], "dn-whoami" ) == 0 ) {	
+					si->si_flags &= ~LDAP_BACK_AUTH_DN_MASK;	
+					si->si_flags |= LDAP_BACK_AUTH_DN_WHOAMI;	
 				} else {
 					snprintf( c->cr_msg, sizeof( c->cr_msg ),
 						"\"idassert-bind <args>\": "
@@ -939,9 +972,23 @@ slap_idassert_parse( ConfigArgs *c, slap_idassert_t *si )
 			Debug( LDAP_DEBUG_ANY, "%s: %s.\n", c->log, c->cr_msg, 0 );
 			return 1;
 		}
+	} else if ( si->si_bc.sb_method == LDAP_AUTH_SASL ) {	
+		if ( BER_BVISNULL( &si->si_bc.sb_binddn ) &&	
+			!(si->si_flags & LDAP_BACK_AUTH_DN_MASK) )	
+		{	
+			static struct berval authid = BER_BVC("cn=auth");	
+			ber_dupbv( &si->si_bc.sb_binddn, &authid );	
+		}	
 	}
 
 	bindconf_tls_defaults( &si->si_bc );
+	
+#ifdef HAVE_TLS	
+	if ( si->si_bc.sb_tls_ctx ) {	
+		ldap_pvt_tls_ctx_free( si->si_bc.sb_tls_ctx );	
+		si->si_bc.sb_tls_ctx = NULL;	
+	}	
+#endif
 
 	return 0;
 }
@@ -1149,7 +1196,7 @@ ldap_back_cf_gen( ConfigArgs *c )
 					(void)lutil_strcopy( ptr, "authz=native" );
 				}
 
-				len = bv.bv_len + STRLENOF( "flags=non-prescriptive,override,obsolete-encoding-workaround,proxy-authz-non-critical" );
+				len = bv.bv_len + STRLENOF( "flags=non-prescriptive,override,obsolete-encoding-workaround,proxy-authz-non-critical,dn-authzid" );
 				/* flags */
 				if ( !BER_BVISEMPTY( &bv ) ) {
 					len += STRLENOF( " " );
@@ -1187,6 +1234,20 @@ ldap_back_cf_gen( ConfigArgs *c )
 
 				} else {
 					ptr = lutil_strcopy( ptr, ",proxy-authz-non-critical" );
+				}
+				
+				switch ( li->li_idassert_flags & LDAP_BACK_AUTH_DN_MASK ) {	
+				case LDAP_BACK_AUTH_DN_AUTHZID:	
+					ptr = lutil_strcopy( ptr, ",dn-authzid" );	
+					break;	
+				case LDAP_BACK_AUTH_DN_WHOAMI:	
+					ptr = lutil_strcopy( ptr, ",dn-whoami" );	
+					break;	
+				default:	
+#if 0 /* implicit */	
+					ptr = lutil_strcopy( ptr, ",dn-none" );	
+#endif	
+					break;	
 				}
 
 				bv.bv_len = ( ptr - bv.bv_val );
@@ -1309,8 +1370,8 @@ ldap_back_cf_gen( ConfigArgs *c )
 				return 1;
 			}
 
-			snprintf( buf, sizeof( buf ), "%ld",
-				(long)li->li_network_timeout );
+			lutil_unparse_time( buf, sizeof( buf ), li->li_network_timeout );
+			
 			ber_str2bv( buf, 0, 0, &bv );
 			value_add_one( &c->rvalue_vals, &bv );
 			} break;
@@ -1746,6 +1807,12 @@ done_url:;
 			}
 			bindconf_tls_defaults( &li->li_tls );
 		}
+#ifdef HAVE_TLS	
+		if ( li->li_tls.sb_tls_ctx ) {	
+			ldap_pvt_tls_ctx_free( li->li_tls.sb_tls_ctx );	
+			li->li_tls.sb_tls_ctx = NULL;	
+		}	
+#endif
 		break;
 
 	case LDAP_BACK_CFG_ACL_AUTHCDN:
@@ -1805,6 +1872,12 @@ done_url:;
 			}
 		}
 		bindconf_tls_defaults( &li->li_acl );
+#ifdef HAVE_TLS	
+		if ( li->li_acl.sb_tls_ctx ) {	
+			ldap_pvt_tls_ctx_free( li->li_acl.sb_tls_ctx );	
+			li->li_acl.sb_tls_ctx = NULL;	
+		}	
+#endif
 		break;
 
 	case LDAP_BACK_CFG_IDASSERT_MODE:
@@ -2457,5 +2530,3 @@ retry:
 	rs->sr_rspdata = bv;
 	return rs->sr_err;
 }
-
-
